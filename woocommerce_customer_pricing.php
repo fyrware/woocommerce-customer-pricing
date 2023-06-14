@@ -134,38 +134,6 @@ add_filter('woocommerce_is_purchasable', 'wcp_allow_purchase_if_customer_price_a
 
 /**********************************************************************************************************************/
 
-if (!function_exists('wcp_validate_customer_price_against_minimum')) {
-    /**
-     * Validate cart price against minimum price to protect against users modifying HTML in dev tools
-     * @param $valid
-     * @param $product_id
-     * @param $quantity
-     * @return bool|mixed
-     */
-    function wcp_validate_customer_price_against_minimum($valid, $product_id, $quantity) {
-        $cart = WC()->cart;
-        $product = wc_get_product($product_id);
-        $allow_customer_price = $product->get_meta('_wcp_allow_customer_set_price');
-        $minimum_price = $product->get_meta('_wcp_minimum_price');
-
-        if ($valid && $allow_customer_price && !empty($minimum_price)) {
-            $customer_price = $_POST['wcp_custom_price'];
-
-            if ($customer_price < $minimum_price) {
-                wc_add_notice(__('Minimum price requirement not met', 'woocommerce_customer_pricing'),'error');
-            }
-
-            return $customer_price >= $minimum_price;
-        }
-
-        return $valid;
-    }
-}
-
-add_filter('woocommerce_add_to_cart_validation', 'wcp_validate_customer_price_against_minimum', 10, 3);
-
-/**********************************************************************************************************************/
-
 if (!function_exists('wcp_render_dynamic_price_input')) {
     /**
      * Render custom price input on product page
@@ -196,6 +164,38 @@ if (!function_exists('wcp_render_dynamic_price_input')) {
 }
 
 add_action('woocommerce_before_add_to_cart_button', 'wcp_render_dynamic_price_input', 10, 1);
+
+/**********************************************************************************************************************/
+
+if (!function_exists('wcp_validate_customer_price_against_minimum')) {
+    /**
+     * Validate cart price against minimum price to protect against users modifying HTML in dev tools
+     * @param $valid
+     * @param $product_id
+     * @param $quantity
+     * @return bool|mixed
+     */
+    function wcp_validate_customer_price_against_minimum($valid, $product_id, $quantity) {
+        $cart = WC()->cart;
+        $product = wc_get_product($product_id);
+        $allow_customer_price = $product->get_meta('_wcp_allow_customer_set_price');
+        $minimum_price = $product->get_meta('_wcp_minimum_price');
+
+        if ($valid && $allow_customer_price && !empty($minimum_price)) {
+            $customer_price = $_POST['wcp_custom_price'];
+
+            if ($customer_price < $minimum_price) {
+                wc_add_notice(__('Minimum price requirement not met', 'woocommerce_customer_pricing'),'error');
+            }
+
+            return $customer_price >= $minimum_price;
+        }
+
+        return $valid;
+    }
+}
+
+add_filter('woocommerce_add_to_cart_validation', 'wcp_validate_customer_price_against_minimum', 10, 3);
 
 /**********************************************************************************************************************/
 
