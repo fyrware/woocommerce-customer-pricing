@@ -180,8 +180,8 @@ if (!function_exists('wcp_render_dynamic_price_input')) {
             return;
         } ?>
 
-        <div class="customer-set-price">
-            <label class="product-custom-text-label" for="wcp_custom_price">
+        <div class="wcp-custom-price">
+            <label for="wcp_custom_price">
                 <?php echo __('Price', 'woocommerce_customer_pricing') . ' (' . get_woocommerce_currency_symbol() . ')'; ?>
             </label>
             <input
