@@ -22,7 +22,7 @@ if (!function_exists('wcp_render_pricing_options')) {
         $allow_customer_price = get_post_meta($product_object->get_id(), '_wcp_allow_customer_set_price', true);
         $minimum_price = get_post_meta($product_object->get_id(), '_wcp_minimum_price', true); ?>
 
-        <?php woocommerce_dynamic_prices_horizontal_rule(); ?>
+        <?php wcp_horizontal_rule(); ?>
 
         <?php woocommerce_wp_checkbox(
             array(
@@ -219,7 +219,7 @@ add_filter('woocommerce_cart_item_price', 'wcp_use_customer_price_in_cart', 10, 
 
 /**********************************************************************************************************************/
 
-function woocommerce_dynamic_prices_horizontal_rule(): void {
+function wcp_horizontal_rule(): void {
     echo '<hr style="border-top-color: #ffffff; border-bottom-color: #eeeeee;"/>';
 }
 
