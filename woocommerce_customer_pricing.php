@@ -222,25 +222,3 @@ add_filter('woocommerce_cart_item_price', 'wcp_use_customer_price_in_cart', 10, 
 function wcp_horizontal_rule(): void {
     echo '<hr style="border-top-color: #ffffff; border-bottom-color: #eeeeee;"/>';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
