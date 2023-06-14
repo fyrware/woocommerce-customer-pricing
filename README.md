@@ -6,4 +6,4 @@ Allow customers to set product pricing before adding to cart. Could be used for 
 
 Renders an input field on the product page that you may inject your own CSS styles for on your theme.
 
-<img width="904" alt="Screenshot 2023-06-13 at 10 36 39 PM" src="https://github.com/fyrware/woocommerce_customer_pricing/assets/1518343/1cf42ac7-1d4a-4d0b-91ab-70e2c6c8eb6e">
+<img width="902" alt="Screenshot 2023-06-13 at 10 46 45 PM" src="https://github.com/fyrware/woocommerce_customer_pricing/assets/1518343/3c2976fc-f82e-4393-87dd-462e04d87116">
