@@ -1,4 +1,4 @@
-# woocommerce_customer_pricing
+# woocommerce-customer-pricing
 
 Allow customers to set product pricing before adding to cart. Could be used for donations, or just allowing your patrons to pay whatever price they feel is fair. Can be enabled by checking the "Allow customer to set product price?" box on the general product data tab.
  
